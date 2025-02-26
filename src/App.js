@@ -1,25 +1,49 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Routes, Route } from "react-router-dom";
+import Home from "./Pages/Home";
+import Tiles from "./Pages/Tiles";
+import Login from "./Pages/Login";
+import ProtectedRoute from "./Components/ProtectedRoute"; // Import the ProtectedRoute
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+        <Route
+          path="/Tiles"
+          element={
+            <ProtectedRoute>
+              <Tiles />
+            </ProtectedRoute>
+          }
+        />
+      </Routes>
     </div>
   );
 }
 
 export default App;
+
+
+
+// import React from "react";
+// import { Routes, Route } from "react-router-dom";
+// import Home from "./Pages/Home";
+// import Tiles from "./Pages/Tiles";
+
+
+// function App () {
+//   return (
+//         <div>
+//         <Routes>
+//           <Route path="/" element={<Home />} />
+//           <Route path="/Tiles" element={<Tiles />} />
+//         </Routes>
+//     </div>
+//   );
+// };
+
+// export default App;
+
